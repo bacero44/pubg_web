@@ -1,16 +1,31 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  
+  <SearchPlayer/>
+  <WeaponMastery v-if="areWeaponMastery"/>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import SearchPlayer from './components/SearchPlayer.vue'
+import WeaponMastery from './components/WeaponMastery.vue'
+
+import { computed } from 'vue';
+import { useStore } from 'vuex';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    SearchPlayer,
+    WeaponMastery
+  },
+  setup() {
+    const store = useStore();
+    const  areWeaponMastery  = computed(() => store.getters.areWeaponMastery );
+    return {
+      areWeaponMastery
+    }
   }
+
+  
 }
 </script>
 
