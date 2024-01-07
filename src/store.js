@@ -11,8 +11,11 @@ export default createStore({
     matches:[]
   },
   getters: {
-    areWeaponMastery: state => {
+    areThereWeaponMastery: state => {
       return Object.keys(state.weaponMastery).length > 0;
+    },
+    isThereLifetime:  state => {
+      return Object.keys(state.lifetime).length > 0;
     }
   },
   mutations: {
